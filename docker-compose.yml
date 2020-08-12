@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  pwm0:
+    container_name: pwm0
+    image: ${DOCKER_REGISTRY-}pwm0
+    privileged: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    devices:
+      - /dev/gpiomem
+      - /dev/mem
